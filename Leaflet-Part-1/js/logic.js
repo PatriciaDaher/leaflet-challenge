@@ -89,8 +89,10 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
       `);
     }
   }).addTo(earthquakes);
-  
 
+  earthquakes.addTo(map);
+});
+  
     // Turn each feature into a circleMarker on the map.
     pointToLayer: function (feature, latlng) {
       return L.circleMarker(latlng, {
@@ -148,14 +150,21 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
     let depths = [-10, 10, 30, 50, 70, 90];
     let colors = ["#00FF00", "#ADFF2F", "#FFFF00", "#FFA500", "#FF4500", "#FF0000"];
     
-    div.innerHTML = "<h4>Earthquake Depth (km)</h4>";}
+    div.innerHTML = "<h4>Earthquake Depth (km)</h4>";
 
     // Loop through our depth intervals to generate a label with a colored square for each interval.
+    for (let i = 0; i < grades.length; i++) {
+      const from = grades[i];
+      const to = grades[i + 1];
+      div.innerHTML +=
+        `<i style="background:${getColor(from + 1)}"></i> ` +
+        `${from}${to ? "&ndash;" + to : "+"}<br>`;
+    }
     return div;
   };
 
   // Finally, add the legend to the map.
-  const legend = L.control({ position: "bottomright" });
+  legend.addTo(map);
 
   legend.onAdd = function () {
     const div = L.DomUtil.create("div", "legend");
@@ -184,5 +193,4 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
       weight: 2
     }).addTo(tectonicPlates);
   });
-});
   
