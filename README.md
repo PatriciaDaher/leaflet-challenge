@@ -30,18 +30,17 @@ The visualization includes the following features:
 
 ## Project Structure
 leaflet-challenge/
-└── README.md
-└── Leaflet-Part-1/
-    ├── index.html
-    └── static/
-        ├── css/
-        │   └── style.css
-        └── js/
-            └── logic.js
-   
-
-## How It Works
-The application pulls live earthquake data from the USGS GeoJSON Feed, specifically the "All Earthquakes from the Past 7 Days" dataset.
+├── README.md
+├── LICENSE
+├── Leaflet-Part-1/
+│   ├── index.html
+│   ├── images
+│   └── static/
+│       ├── css/
+│       │   └── style.css
+│       └── js/
+│           └── logic.js
+└── Leaflet-Part-2/
 
 ## How to Use
 1. Clone the repository
@@ -49,9 +48,13 @@ The application pulls live earthquake data from the USGS GeoJSON Feed, specifica
 3. The map will automatically load with the most recent earthquake data from USGS
 4. Click on any earthquake marker to view additional information
 
-## Data Sources
-- Earthquake data from [USGS GeoJSON Feed](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php)
-- Optional tectonic plate data from [GitHub/fraxen/tectonicplates](https://github.com/fraxen/tectonicplates)
+## Data and Map Template Sources
+The application pulls live earthquake data from the USGS GeoJSON Feed, specifically the "All Earthquakes from the Past 7 Days" dataset.
+**Data**:
+- Earthquake data from https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php
+- Earthquake Data for the past 7 days (all data) JSON https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson
+**Map Template**:
+https://www.openstreetmap.org/copyright
 
 ## Results
 The visualization provides an interactive map that:
@@ -60,3 +63,6 @@ The visualization provides an interactive map that:
 - Indicates depth through color gradient
 - Offers detailed information on click
 - Includes a legend for interpretation
+
+## Licesnse
+open source 
